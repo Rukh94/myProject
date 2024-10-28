@@ -22,7 +22,7 @@ jobs:
           node-version: '20.13.1'
 
       - name: Install project dependencies
-        run: npm ci --no-optional  # This installs packages without optional dependencies like fsevents
+        run: npm ci --omit=optional  # This omits optional dependencies like fsevents
 
       - name: Run Cypress tests
         run: npx cypress run
