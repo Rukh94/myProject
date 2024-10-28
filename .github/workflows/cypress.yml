@@ -21,8 +21,11 @@ jobs:
         with:
           node-version: '20.13.1'
 
+      - name: Clean fsevents if present
+        run: npm run clean-fsevents  # Run the script to remove fsevents
+
       - name: Install project dependencies
-        run: npm ci --omit=optional  # This omits optional dependencies like fsevents
+        run: npm ci --omit=optional  # Install dependencies excluding optional ones
 
       - name: Run Cypress tests
         run: npx cypress run
