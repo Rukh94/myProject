@@ -22,7 +22,7 @@ jobs:
           node-version: '20.13.1'
 
       - name: Install project dependencies
-        run: npm install --legacy-peer-deps  # or use --no-optional
+        run: npm ci --no-optional  # This installs packages without optional dependencies like fsevents
 
       - name: Run Cypress tests
         run: npx cypress run
