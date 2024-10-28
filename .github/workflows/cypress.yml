@@ -1,30 +1,28 @@
-name: Cypress Tests
+name: Cypress tests
 
 on:
   push:
     branches:
-      - main  # Run tests on push to the main branch
+      - main
   pull_request:
     branches:
-      - main  # Run tests on pull requests to the main branch
+      - main
 
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
-
+    
     steps:
-      - name: Checkout code
+      - name: Checkout repository
         uses: actions/checkout@v3
 
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18'  # Match the Node.js version used locally
+          node-version: '20.13.1'
 
-      - name: Install dependencies
-        run: npm install
+      - name: Install project dependencies
+        run: npm install --legacy-peer-deps  # or use --no-optional
 
       - name: Run Cypress tests
-        uses: cypress-io/github-action@v5
-        with:
-          config-file: cypress.config.js  # Specify your Cypress config if necessary
+        run: npx cypress run
