@@ -455,7 +455,7 @@
     "yup": "^1.2.0"
   },
   "scripts": {
-    "test": "mocha"
+   "clean-fsevents": "npm uninstall fsevents"
   },
   "keywords": [],
   "author": "",
