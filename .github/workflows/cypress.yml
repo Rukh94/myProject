@@ -28,4 +28,6 @@ jobs:
         run: npm ci --omit=optional  # Install dependencies excluding optional ones
 
       - name: Run Cypress tests
-        run: npx cypress run
+        run: npx cypress run --config-file=cypress.config.js --record true --key ${{ secrets.CYPRESS_RECORD_KEY }}
+        env:  # The env should be nested under the run step for clarity
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
