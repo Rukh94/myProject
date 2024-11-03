@@ -11,6 +11,7 @@ Then I click on Sign up button
 And I signup with "<username>" and "<password>" 
 Then I click on signup button
 
+
  @signup
  Scenario Outline: Signup with blank username
   Then I click on Sign up button

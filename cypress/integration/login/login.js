@@ -45,6 +45,8 @@ Then("I click login", function () {
   cy.wait(2000); // wait for login action to complete
 });
 
+
+
 Then("I should be logged in successfully", function () {
   cy.get("a[id='nameofuser']").should('include.text', 'Welcome');
 });
